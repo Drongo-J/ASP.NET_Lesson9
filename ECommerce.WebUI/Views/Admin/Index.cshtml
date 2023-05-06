@@ -31,14 +31,17 @@
                     @item.ProductName
                 </td>
                 <td>
-                    @item.UnitPrice
+                    <input id="unitPriceInput" value="@item.UnitPrice">
                 </td>
                 <td>
-                    @item.UnitsInStock
+                    <input type="number" value="@item.UnitsInStock" />
                 </td>
                 <td>
-                    <a class="btn btn-xs btn-success" asp-controller="Cart"
-                   asp-action="AddToCart" asp-route-productId="@item.ProductId">Add To Cart</a>
+                    <a class="btn btn-xs btn-warning" asp-controller="Admin"
+                   asp-action="Update" asp-route-unitPrice="@Context.Request.Query["unitPriceInput"]">Update</a>
+
+                    <a class="btn btn-xs btn-danger" asp-controller="Admin"
+                   asp-action="Delete" asp-route-productId="@item.ProductId">Delete</a>
                 </td>
             </tr>
         }

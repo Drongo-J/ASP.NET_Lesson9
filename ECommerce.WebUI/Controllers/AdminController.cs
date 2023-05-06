@@ -53,5 +53,18 @@ namespace ECommerce.WebUI.Controllers
             return RedirectToAction("index");
         }
 
+        [HttpPost]
+        public IActionResult Delete(int productId)
+        {
+            _productService.Delete(productId);
+            return RedirectToAction("index");
+        }
+
+        [HttpPost]
+        public IActionResult Update(Product product)
+        {
+            _productService.Update(product);
+            return RedirectToAction("index");
+        }
     }
 }
